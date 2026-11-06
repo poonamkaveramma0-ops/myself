@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Personal Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f7ff;
+    color: #110c23;
+}
+
+/* Navigation */
+header {
+    background: #9870b7;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #d9baff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d9baff;
+}
+
+/* Common Sections */
+section {
+    padding: 75px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #583b91;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: #b18ae8;
+}
+
+/* Home */
+#home {
+    min-height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(120deg, #eee7ff, #ffffff);
+    gap: 35px;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.home-content h1 span {
+    color: #642b81;
+}
+
+.home-content h3 {
+    color: #4b226a;
+    margin-bottom: 18px;
+}
+
+.home-content p {
+    line-height: 1.8;
+    color: #625b70;
+}
+
+.profile-img {
+    width: 280px;
+    height: 320px;
+    border-radius: 45%;
+    object-fit: cover;
+    border: 7px solid rgb(57, 13, 75);
+    box-shadow: 0 10px 30px #c5b4e5;
+}
+
+.btn {
+    display: inline-block;
+    background: #7952b3;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #43276f;
+    transform: translateY(-4px);
+}
+
+/* About */
+#about {
+    background: white;
+}
+
+.about-box {
+    background: #f2edfc;
+    padding: 30px;
+    border-radius: 15px;
+    line-height: 2;
+    box-shadow: 0 5px 15px #e1d8f1;
+}
+
+/* Education */
+#education {
+    background: #eee9fa;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px #d9d0e8;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px #c4b3e2;
+}
+
+.card h3 {
+    color: #7652a5;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.7;
+}
+
+/* Skills */
+#skills {
+    background: white;
+}
+
+.skill {
+    margin-bottom: 22px;
+}
+
+.skill p {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.progress {
+    height: 12px;
+    background: #e8e0f5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: linear-gradient(90deg, #7952b3, #c49af5);
+    border-radius: 20px;
+}
+
+/* Hobbies */
+#hobbies {
+    background: #f0ebfa;
+}
+
+.hobby {
+    text-align: center;
+    background: white;
+    padding: 25px 15px;
+    border-radius: 15px;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.hobby:hover {
+    background: #7952b3;
+    color: white;
+    transform: scale(1.05);
+}
+
+.hobby .emoji {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+/* Goals */
+#goals {
+    background: white;
+}
+
+.goal-box {
+    padding: 25px;
+    border-left: 5px solid #9870d0;
+    background: #f4f0fb;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+/* Achievements */
+#achievements {
+    background: #eee9fa;
+}
+
+/* Contact */
+#contact {
+    background: #292044;
+    color: white;
+    text-align: center;
+}
+
+#contact .section-title {
+    color: #d9baff;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.contact-links a {
+    color: white;
+    text-decoration: none;
+    background: #7652a5;
+    padding: 13px 22px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    background: #b18ae8;
+    color: #292044;
+}
+
+/* Footer */
+footer {
+    background: #1c1730;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Mobile Responsive */
+@media(max-width: 800px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    #home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 55px;
+    }
+
+    .home-content h1 {
+        font-size: 35px;
+    }
+
+    .profile-img {
+        width: 220px;
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header>
+    <div class="logo">My Portfolio</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#goals">Goals</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+
+    <div class="home-content">
+        <h3>Hello, Welcome to My Portfolio!</h3>
+
+        <h1><span>Poonam Kaveramma</span></h1>
+
+        <h3>Student | Future Professional | Learner</h3>
+
+        <p>
+            Welcome to my personal portfolio website.
+            I am a student who is passionate about learning
+            new things, exploring technology and developing
+            new skills. This website gives you a glimpse
+            of my education, interests, achievements and goals.
+        </p>
+
+        <a href="#about" class="btn">Discover More</a>
+    </div>
+
+    <img src="c:\Users\Poonam Kaveramma\Downloads\WhatsApp Image 2026-11-05 at 9.32.00 AM.jpeg"
+         alt="My Profile Photograph"
+         class="profile-img">
+
+</section>
+
+<!-- About Me -->
+<section id="about">
+
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <div class="about-box">
+        <p>
+            My name is Poonam Kaveramma. I am from Kodagu.
+            I am currently pursuing my undergraduate studies.
+            I enjoy learning new things and improving my
+            knowledge in different fields.
+        </p>
+
+        <p>
+            My hobbies include reading books, listening to music,
+            travelling, photography and exploring technology.
+            I consider myself a hardworking, creative and
+            positive person.
+        </p>
+
+        <p>
+            My goal is to become a successful professional,
+            develop my technical knowledge and make my family
+            proud through my achievements.
+        </p>
+    </div>
+
+</section>
+
+<!-- Education -->
+<section id="education">
+
+    <h2 class="section-title">My <span>Education</span></h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>🏫 School Education</h3>
+            <p><b>School:</b>Rotary Primary School</p>
+            <p><b>Qualification:</b> 10th Standard</p>
+            <p><b>Year:</b>2024</p>
+            <p><b>Percentage:</b>90%</p>
+        </div>
+
+        <div class="card">
+            <h3>📚 PUC Education</h3>
+            <p><b>College:</b>St.Annes PU College</p>
+            <p><b>Qualification:</b> 12th / PUC</p>
+            <p><b>Stream:</b>PCMC</p>
+            <p><b>Percentage:</b>94%</p>
+        </div>
+
+        <div class="card">
+            <h3>🎓 Current Education</h3>
+            <p><b>College:</b> Reva University</p>
+            <p><b>Course:</b> B.Sc. in Cloud Computing and Big Data</p>
+            <p><b>Year:</b> 2026</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Skills -->
+<section id="skills">
+
+    <h2 class="section-title">My <span>Skills</span></h2>
+
+    <div class="skill">
+        <p>Basic Computer Knowledge</p>
+        <div class="progress"><div style="width:85%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>HTML and CSS</p>
+        <div class="progress"><div style="width:75%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>C Programming</p>
+        <div class="progress"><div style="width:65%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Communication Skills</p>
+        <div class="progress"><div style="width:80%"></div></div>
+    </div>
+
+    <div class="skill">
+        <p>Problem Solving</p>
+        <div class="progress"><div style="width:70%"></div></div>
+    </div>
+
+    <p style="margin-top:20px">
+        Other skills: Teamwork, Creativity, Leadership,
+        Time Management and Adaptability.
+    </p>
+
+</section>
+
+<!-- Hobbies -->
+<section id="hobbies">
+
+    <h2 class="section-title">My Hobbies & <span>Interests</span></h2>
+
+    <div class="card-container">
+
+        <div class="hobby">
+            <span class="emoji">Playing cricket🏏</span>
+            Sports
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">Listening to music🎵</span>
+            Music
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">Reading books📖</span>
+            Reading
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">Travelling✈️</span>
+            Travelling
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">Photography📸</span>
+            Photography
+        </div>
+
+        <div class="hobby">
+            <span class="emoji">Coding💻</span>
+            Technology
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Goals -->
+<section id="goals">
+
+    <h2 class="section-title">My <span>Goals</span></h2>
+
+    <div class="goal-box">
+        <h3>🎯 Short-Term Goals</h3>
+        <p>
+            To improve my programming skills, perform well
+            academically, learn new technologies and participate
+            in college activities and competitions.
+        </p>
+    </div>
+
+    <div class="goal-box">
+        <h3>🚀 Long-Term Goals</h3>
+        <p>
+            To establish a successful career in the technology
+            industry, become financially independent and
+            continuously improve my professional knowledge.
+        </p>
+    </div>
+
+    <div class="goal-box">
+        <h3>💡 My Engineering / Technical Goals</h3>
+        <p>
+            To gain practical experience, understand advanced
+            technologies, develop innovative projects and
+            become a skilled technology professional.
+        </p>
+    </div>
+
+</section>
+
+<!-- Achievements -->
+<section id="achievements">
+
+    <div class="card-container">
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+
+    <h2 class="section-title">Contact <span>Me</span></h2>
+
+    <p>
+        Thank you for visiting my portfolio!
+        Feel free to connect with me.
+    </p>
+
+    <div class="contact-links">
+
+        <a href="poonam@gmail.com">📧 Email Me</a>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Poonam Kaveramma | My Personal Portfolio</p>
+    <p>Designed with ❤️ using HTML, CSS and JavaScript</p>
+</footer>
+
+<script>
+
+// Welcome message
+window.onload = function() {
+    console.log("Welcome to my personal portfolio!");
+};
+
+// Navigation click effect
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", function() {
+        document.querySelectorAll("nav a").forEach(item => {
+            item.style.color = "white";
+        });
+
+        this.style.color = "#d9baff";
+    });
+});
+
+// Discover more button
+document.querySelector(".btn").addEventListener("click", function() {
+    console.log("Welcome to the About Me section!");
+});
+
+</script>
+
+</body>
+</html>
